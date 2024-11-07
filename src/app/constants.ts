@@ -8,17 +8,17 @@ export const SITE_TITLE = 'Approvideo Library Manager Dashboard';
 export const RANDOMIZE = Boolean(import.meta.env.RANDOMIZE) || true;
 
 // NOTE: Unmapped
-// export const SIDEBAR = [
-// 	{
-// 		title: 'Getting started',
-// 		pages: [
-// 			{ title: 'Introduction' },
-// 			{ title: 'Quickstart' },
-// 			{ title: 'Build tools' },
-// 			{ title: 'License' },
-// 			{ title: 'Changelog' },
-// 		],
-// 	},
+ export const SIDEBAR = [
+ 	{
+ 		title: 'Getting started',
+ 		pages: [
+ 			{ title: 'Introduction' },
+ 			{ title: 'Quickstart' },
+ 			{ title: 'Build tools' },
+ 			{ title: 'License' },
+ 			{ title: 'Changelog' },
+ 		],
+ 	},
 // 	{
 // 		title: 'Customize',
 // 		pages: [
@@ -49,4 +49,4 @@ export const RANDOMIZE = Boolean(import.meta.env.RANDOMIZE) || true;
 // 			{ title: 'Tooltips' },
 // 		],
 // 	},
-// ];
+ ];
