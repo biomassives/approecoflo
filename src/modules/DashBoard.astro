@@ -1,12 +1,39 @@
 ---
 /* eslint max-lines: 'off' */
 
+import { createClient } from '@supabase/supabase-js';
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseKey = import.meta.env.SUPABASE_SERVICE_ROLE_KEY;  
 import { asset } from '../lib/data';
+const { data: videos } = await supabase
+  .from('videos')
+  .select('*');
+
 ---
 
 <div class="px-4 pt-6">
 	<div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
 		<!-- Main widget -->
+<div>
+  <h2>Video Dashboard</h2>
+
+  {/* (Optional) Add a section for notifications here */}
+
+  <ul>
+    {videos.map((video) => (
+      <li>
+        <h3>{video.title}</h3>
+        <p>Tags: {video.tags.join(', ')}</p>
+        <p>Status: {video.status}</p>
+        <a href={`/edit-video/${video.id}`}>Edit</a>
+        <button onClick={() => handleApprove(video.id)}>Approve</button>
+        <button onClick={() => handleReject(video.id)}>Reject</button>
+      </li>
+    ))}
+  </ul>
+</div>
+
+
 		<div
 			class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800"
 		>

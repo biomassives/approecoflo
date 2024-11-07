@@ -1,0 +1,51 @@
+// src/modules/VideoEdit.astro
+---
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseKey = import.meta.env.SUPABASE_SERVICE_ROLE_KEY;  
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+export async function getStaticPaths() {
+  const { data: videos } = await supabase
+    .from('videos')
+    .select('id');
+
+  return videos.map((video) => ({
+    params: { id: video.id },
+  }));
+}
+
+export async function getStaticProps({ params }) {
+  const { data: video } = await supabase
+    .from('videos')
+    .select('*')
+    .eq('id', params.id)
+    .single();
+
+  return {
+    props: { video },
+  };
+}
+
+const { video } = Astro.props;
+---
+<div>
+  <h2>Edit Video</h2>
+
+  <form action="/api/update-video" method="post">
+    <input type="hidden" name="id" value={video.id} />
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value={video.title} />
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description">{video.description}</textarea>
+
+    <label for="tags">Tags (comma-separated):</label>
+    <input type="text" id="tags" name="tags" value={video.tags.join(', ')} />
+
+    <button type="submit">Update Video</button>
+  </form>
+</div>

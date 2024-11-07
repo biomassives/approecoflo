@@ -39,6 +39,7 @@
 		"@astrojs/sitemap": "^1.1.0",
 		"@astrojs/tailwind": "^3.0.1",
 		"@faker-js/faker": "^7.6.0",
+		"@supabase/supabase-js": "^2.46.1",
 		"apexcharts": "^3.37.2",
 		"astro": "^2.0.4",
 		"flowbite": "^2.1.1",

@@ -1,42 +1,90 @@
 import type { APIRoute } from 'astro';
-import * as operations from '../../services/index.js';
+import type { EndpointsToOperations } from '../../types/entities';
 
-/* Map REST API endpoints to internal operations
-  (GETs only for illustration purpose) */
-export const endpointsToOperations = {
-	products: operations.getProducts,
-	users: operations.getUsers,
+export const endpointsToOperations: EndpointsToOperations = {
+  getProducts: async () => {
+    return [];
+  },
+  createProduct: async (product) => {
+    return { ...product, id: Date.now() };
+  },
+  updateProduct: async (id, product) => {
+    return { ...product, id } as any;
+  },
+  deleteProduct: async (id) => {
+    // Delete operation
+  },
+
+  getUsers: async () => {
+    return [];
+  },
+  createUser: async (user) => {
+    return { ...user, id: Date.now() };
+  },
+  updateUser: async (id, user) => {
+    return { ...user, id } as any;
+  },
+  deleteUser: async (id) => {
+    // Delete operation
+  },
+
+  'credentials/issue': async (data) => {
+    return {
+      id: `cred-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+      ...data
+    };
+  },
+  'credentials/verify': async (id) => {
+    return { valid: true };
+  },
+  'credentials/projects': async () => {
+    return [];
+  },
+  'credentials/media': async (credentialId) => {
+    return [];
+  },
 };
 
-function parseTypeParam(endpoint: string | undefined) {
-	if (!endpoint || !(endpoint in endpointsToOperations)) return undefined;
-	return endpoint as keyof typeof endpointsToOperations;
-}
+export const get: APIRoute = async ({ params, request }) => {
+  const { entity } = params;
+  if (!entity || !(entity in endpointsToOperations)) {
+    return new Response('Invalid endpoint', { status: 404 });
+  }
 
-/* Controllers */
-
-export const get: APIRoute = ({ params /* , request */ }) => {
-	console.log('Hit!', params.entity);
-
-	const operationName = parseTypeParam(params.entity);
-
-	if (!operationName) return new Response('404', { status: 404 });
-
-	const body = endpointsToOperations[operationName]();
-
-	return new Response(JSON.stringify(body), {
-		status: 200,
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	});
+  try {
+    const operation = endpointsToOperations[entity as keyof EndpointsToOperations];
+    const result = await operation();
+    return new Response(JSON.stringify(result), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error(`Error handling ${entity}:`, error);
+    return new Response('Internal server error', { status: 500 });
+  }
 };
 
-/* ... */
+export const post: APIRoute = async ({ params, request }) => {
+  const { entity } = params;
+  if (!entity || !(entity in endpointsToOperations)) {
+    return new Response('Invalid endpoint', { status: 404 });
+  }
 
-/* Astro's static build helper, can be removed for SSR mode */
-export function getStaticPaths() {
-	return Object.keys(endpointsToOperations).map((endpoint) => ({
-		params: { entity: endpoint },
-	}));
-}
+  try {
+    const data = await request.json();
+    const operation = endpointsToOperations[entity as keyof EndpointsToOperations];
+    const result = await operation(data);
+    return new Response(JSON.stringify(result), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error(`Error handling ${entity}:`, error);
+    return new Response('Internal server error', { status: 500 });
+  }
+};
