@@ -1,0 +1,1 @@
+import"./hoisted.e011354b.js";import"./hoisted.68f5ce7c.js";const e=document.querySelector("#confettis"),o=document.querySelector("[data-trigger-confettis]");o.addEventListener("click",n);function n(){const t={target:e,start_from_edge:!0};new ConfettiGenerator(t).render()}console.log("Pop 🎉!");
