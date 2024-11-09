@@ -1,0 +1,219 @@
+{{ define "scripts" }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
+<script src="{{ "js/services/storage.js" | relURL }}"></script>
+<script src="{{ "js/videos.js" | relURL }}"></script>
+
+<script>
+  // Initialize Flowbite
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize drawers
+    const drawers = [
+      {
+        id: 'drawer-update-video-default',
+        placement: 'right'
+      },
+      {
+        id: 'drawer-delete-video-default',
+        placement: 'right'
+      },
+      {
+        id: 'drawer-create-video-default',
+        placement: 'right'
+      }
+    ];
+
+    drawers.forEach(({ id, placement }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const drawer = new Drawer(element, {
+          placement: placement,
+          backdrop: true,
+          bodyScrolling: false,
+          closeOnOutsideClick: true
+        });
+
+        // Store drawer instance
+        window[id] = drawer;
+
+        // Add event listeners for the drawer
+        document.querySelectorAll(`[data-drawer-target="${id}"]`).forEach(trigger => {
+          trigger.addEventListener('click', () => {
+            drawer.show();
+          });
+        });
+
+        document.querySelectorAll(`[data-drawer-dismiss="${id}"]`).forEach(trigger => {
+          trigger.addEventListener('click', () => {
+            drawer.hide();
+          });
+        });
+      }
+    });
+
+    // Initialize form handling
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        console.log('Form submitted:', data);
+        
+        // Close the drawer after submission
+        const drawer = form.closest('[id^="drawer-"]');
+        if (drawer && window[drawer.id]) {
+          window[drawer.id].hide();
+        }
+      });
+    });
+  });
+
+  // Function to fetch videos from your data file
+  async function fetchVideos() {
+    // Access video data directly (Hugo makes it available)
+    const videos = {{ index .Site.Data "videos" }};
+
+    // Populate the table with the fetched data
+    populateVideosTable(videos); 
+  }
+
+
+  // Function to fetch videos from your data file
+  function fetchVideos() {
+    const videos = {{ index .Site.Data "videos" }};
+    populateVideosTable(videos); 
+  }
+
+  // Function to populate the videos table with data
+  function populateVideosTable(videos) {
+    const videosTableBody = document.getElementById('videos-table-body');
+    videosTableBody.innerHTML = ''; // Clear existing content
+
+    videos.forEach(video => {
+      const videoRow = `
+        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+          <td class="w-4 p-4">
+            <div class="flex items-center">
+              <input id="checkbox-${video.id}" aria-describedby="checkbox-1" type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+              <label for="checkbox-${video.id}" class="sr-only">checkbox</label>
+            </div>
+          </td>
+          <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+            <div class="text-base font-semibold text-gray-900 dark:text-white">${video.title}</div>
+          </td>
+          <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">${video.categories.join(', ')}</td>
+          <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">${video.description}</td>
+          <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#${video.id}</td>
+          <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <a href="https://www.youtube.com/watch?v=${video.youtubeId}" target="_blank">${video.youtubeId}</a>
+          </td>
+          <td class="p-4 space-x-2 whitespace-nowrap">
+            <button type="button" data-drawer-target="drawer-update-video-default" data-drawer-show="drawer-update-video-default" aria-controls="drawer-update-video-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onclick="openUpdateVideoDrawer('${video.id}')">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
+              Update
+            </button>
+            <button type="button" data-drawer-target="drawer-delete-video-default" data-drawer-show="drawer-delete-video-default" aria-controls="drawer-delete-video-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900" onclick="openDeleteVideoDrawer('${video.id}')">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+              Delete
+            </button>
+          </td>
+        </tr>
+      `;
+      videosTableBody.innerHTML += videoRow;
+    });
+  
+
+  // Function to open the "Update Video" drawer and pre-fill the form
+  function openUpdateVideoDrawer(videoId) {
+    // 1. Find the video data in the `videos` array using `videoId`
+    const videoToUpdate = videos.find(video => video.id === videoId);
+
+    // 2. Pre-fill the form fields with the video data
+    const updateForm = document.getElementById('updateVideoForm');
+    updateForm.querySelector('[name="title"]').value = videoToUpdate.title;
+    // ... (Pre-fill other form fields) ...
+  }
+
+
+// Function to open the "Delete Video" drawer
+function openDeleteVideoDrawer(videoId) {
+  // 1. (Optional) Display the video title in the confirmation message
+  const videoToDelete = videos.find(video => video.id === videoId);
+  const deleteConfirmationMessage = document.querySelector('#deleteVideoForm h3');
+  if (deleteConfirmationMessage) {
+    deleteConfirmationMessage.textContent = `Are you sure you want to delete "${videoToDelete.title}"?`;
+  }
+
+  // 2. When the user confirms deletion, handle the deletion logic
+  const deleteVideoForm = document.getElementById('deleteVideoForm');
+  deleteVideoForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Find the index of the video to delete in the `videos` array
+    const videoIndex = videos.findIndex(video => video.id === videoId);
+
+    if (videoIndex > -1) {
+      // Remove the video from the `videos` array
+      videos.splice(videoIndex, 1);
+
+      // Update the UI (re-render the table or remove the video element)
+      populateVideosTable(videos); 
+
+      // (For your MVP, you might want to use local storage to persist changes)
+      // ... Code to save updated `videos` array to local storage ...
+    }
+
+    // Close the drawer
+    const drawer = deleteVideoForm.closest('[id^="drawer-"]');
+    if (drawer && window[drawer.id]) {
+      window[drawer.id].hide();
+    }
+  });
+}
+
+
+
+// Function to handle the "Create Video" form submission
+function handleCreateVideoFormSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+
+  // Get values from the form data
+  const title = formData.get('title');
+  const category = formData.get('category');
+  const url = formData.get('url'); // This might be the YouTube ID or the full URL
+  const description = formData.get('description');
+
+  // Create a new video object
+  const newVideo = {
+    id: generateNewVideoId(), // You'll need a function to generate unique IDs
+    title: title,
+    categories: [category], // Assuming a single category for now
+    youtubeId: url, // Or extract the YouTube ID from the URL if needed
+    description: description
+    // ... Add other properties as needed ...
+  };
+
+  // Add the new video to the `videos` array
+  videos.push(newVideo);
+
+  // Update the UI (re-render the table or add the new video element)
+  populateVideosTable(videos);
+
+
+  // ... (Your existing event listener for the "Create Video" form) ...
+
+  // Fetch initial video data when the page loads
+  fetchVideos(); 
+
+  form.reset();
+  const drawer = form.closest('[id^="drawer-"]');
+  if (drawer && window[drawer.id]) {
+    window[drawer.id].hide();
+  }
+
+
+</script>
+{{ end }}

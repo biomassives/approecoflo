@@ -1,0 +1,105 @@
+{
+  "videos": [
+    {
+      "id": "9",
+      "title": "Car Alternator Windmill for Off-Grid Power",
+      "categories": [
+        "Energy Systems"
+      ],
+      "description": "Learn how to repurpose a car alternator to create a robust windmill for generating off-grid electricity.",
+      "youtubeId": "X8hE8XYOQN4",
+      "tags": [
+        "windmill",
+        "alternator",
+        "off-grid",
+        "DIY power"
+      ],
+      "rating": 4.6,
+      "date": "2024-02-10",
+      "materials": [
+        "Car Alternator",
+        "PVC Pipes",
+        "Wooden Blades",
+        "Tail Vane",
+        "Charge Controller",
+        "Deep Cycle Battery"
+      ],
+      "steps": [
+        "Modify the alternator for low RPM operation",
+        "Construct the windmill frame using PVC pipes",
+        "Create and attach wooden blades",
+        "Install the tail vane for directional control",
+        "Set up the electrical system with charge controller and battery",
+        "Mount and test the windmill"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Build a Solar Water Heater",
+      "categories": [
+        "Energy Systems",
+        "Drinking Water"
+      ],
+      "description": "Step-by-step guide to constructing an efficient solar water heater for your home, reducing energy costs.",
+      "youtubeId": "l0qkcViT4is",
+      "tags": [
+        "solar",
+        "water heater",
+        "energy efficiency",
+        "DIY"
+      ],
+      "rating": 4.7,
+      "date": "2024-01-25",
+      "materials": [
+        "Copper Pipes",
+        "Glass Panel",
+        "Insulation",
+        "Storage Tank",
+        "Pump",
+        "Thermostatic Valve"
+      ],
+      "steps": [
+        "Build the collector box",
+        "Install the copper pipe grid",
+        "Add insulation and the glass panel",
+        "Set up the storage tank and pump",
+        "Connect the system to your home's water supply",
+        "Test and optimize the system"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Constructing a Reed Bed Water Treatment System",
+      "categories": [
+        "Drinking Water",
+        "Waste Management"
+      ],
+      "description": "Detailed tutorial on building a natural reed bed system for greywater treatment and recycling.",
+      "youtubeId": "kUJr9NQY1Pk",
+      "tags": [
+        "reed bed",
+        "water treatment",
+        "greywater",
+        "natural filtration"
+      ],
+      "rating": 4.5,
+      "date": "2023-12-05",
+      "materials": [
+        "Pond Liner",
+        "Gravel",
+        "Sand",
+        "Reed Plants",
+        "Pipes",
+        "Distribution System"
+      ],
+      "steps": [
+        "Excavate the reed bed area",
+        "Install the pond liner",
+        "Layer gravel and sand",
+        "Plant the reeds",
+        "Set up the water distribution system",
+        "Connect to your greywater source"
+      ]
+    }
+  ]
+}

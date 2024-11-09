@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" class="{{ with .Site.Params.darkMode }}dark{{ end }}">
+  <head>
+    {{ partial "header.html" . }}
+  </head>
+  <body>
+    {{ block "main" . }}{{ end }}
+    {{ partial "scripts.html" . }}
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>
