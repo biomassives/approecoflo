@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ .Page.Params.description | default .Site.Params.description | markdownify }}">
 <meta name="author" content="{{ .Site.Params.authors }}">
-<meta name="generator" content="Hugo {{ hugo.Version }}">
+<meta name="generator" content="Approvideo {{ hugo.Version }}">
 
 <title>{{ .Params.Title | markdownify }}</title>
 
@@ -24,4 +24,13 @@
     } else {
         document.documentElement.classList.remove('dark')
     }
+
+
+    require('dotenv').config();
+    import { createClient } from '@supabase/supabase-js';
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+     const supabase = createClient(supabaseUrl, supabaseKey);
+
+
 </script>

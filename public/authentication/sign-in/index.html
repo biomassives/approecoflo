@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
+<meta name="author" content="SCD Hub">
+<meta name="generator" content="Hugo 0.68.3">
+
+<title>Tailwind CSS Sign in/Login Page - Flowbite</title>
+
+<link rel="canonical" href="https://approecoflo.vercel.app/authentication/sign-in/">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://approecoflo.vercel.app//app.css">
+<link rel="apple-touch-icon" sizes="180x180" href="https://approecoflo.vercel.app/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://approecoflo.vercel.app/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://approecoflo.vercel.app/favicon-16x16.png">
+<link rel="icon" type="image/png" href="https://approecoflo.vercel.app/favicon.ico">
+<link rel="manifest" href="https://approecoflo.vercel.app/site.webmanifest">
+<link rel="mask-icon" href="https://approecoflo.vercel.app/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="Tailwind CSS Sign in/Login Page - Flowbite">
+<meta name="twitter:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
+<meta name="twitter:image" content="https://approecoflo.vercel.app/images/og-image.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://approecoflo.vercel.app/authentication/sign-in/">
+<meta property="og:title" content="Tailwind CSS Sign in/Login Page - Flowbite">
+<meta property="og:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta property="og:image:type" content="image/png">
+
+
+
+
+
+
+<script>
+    
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+
+  </head>
+  <body>
+    
+
+
+
+<main class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
+    <a href="https://approecoflo.vercel.app/" class="flex items-center justify-center mb-8 text-2xl font-semibold lg:mb-10 dark:text-white">
+        <img src="https://approecoflo.vercel.app/images/logo.svg" class="mr-4 h-11" alt="FlowBite Logo">
+        <span>Flowbite</span>  
+    </a>
+    <!-- Card -->
+    <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+            Sign in to platform 
+        </h2>
+        <form class="mt-8 space-y-6" action="#">
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="name@company.com" required>
+            </div>
+            <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required>
+            </div>
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="remember" aria-describedby="remember" name="remember" type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600" required>
+                </div>
+                <div class="ml-3 text-sm">
+                <label for="remember" class="font-medium text-gray-900 dark:text-white">Remember me</label>
+                </div>
+                <a href="#" class="ml-auto text-sm text-primary-700 hover:underline dark:text-primary-500">Lost Password?</a>
+            </div>
+            <button type="submit" class="w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Login to your account</button>
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                Not registered? <a class="text-primary-700 hover:underline dark:text-primary-500">Create account</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</main>
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://approecoflo.vercel.app//app.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
+<script src="https://approecoflo.vercel.app/js/services/storage.js"></script>
+<script src="https://approecoflo.vercel.app/js/videos.js"></script>
+
+<script>
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const drawers = [
+      {
+        id: 'drawer-update-video-default',
+        placement: 'right'
+      },
+      {
+        id: 'drawer-delete-video-default',
+        placement: 'right'
+      },
+      {
+        id: 'drawer-create-video-default',
+        placement: 'right'
+      }
+    ];
+
+    drawers.forEach(({ id, placement }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const drawer = new Drawer(element, {
+          placement: placement,
+          backdrop: true,
+          bodyScrolling: false,
+          closeOnOutsideClick: true
+        });
+
+        
+        window[id] = drawer;
+
+        
+        document.querySelectorAll(`[data-drawer-target="${id}"]`).forEach(trigger => {
+          trigger.addEventListener('click', () => {
+            drawer.show();
+          });
+        });
+
+        document.querySelectorAll(`[data-drawer-dismiss="${id}"]`).forEach(trigger => {
+          trigger.addEventListener('click', () => {
+            drawer.hide();
+          });
+        });
+      }
+    });
+
+    
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        console.log('Form submitted:', data);
+        
+        
+        const drawer = form.closest('[id^="drawer-"]');
+        if (drawer && window[drawer.id]) {
+          window[drawer.id].hide();
+        }
+      });
+    });
+  });
+
+  
+  async function fetchVideos() {
+    
+    const videos = {"videos":[{"categories":["Energy Systems"],"date":"2024-02-10","description":"Learn how to repurpose a car alternator to create a robust windmill for generating off-grid electricity.","id":"9","materials":["Car Alternator","PVC Pipes","Wooden Blades","Tail Vane","Charge Controller","Deep Cycle Battery"],"rating":4.6,"steps":["Modify the alternator for low RPM operation","Construct the windmill frame using PVC pipes","Create and attach wooden blades","Install the tail vane for directional control","Set up the electrical system with charge controller and battery","Mount and test the windmill"],"tags":["windmill","alternator","off-grid","DIY power"],"title":"Car Alternator Windmill for Off-Grid Power","youtubeId":"X8hE8XYOQN4"},{"categories":["Energy Systems","Drinking Water"],"date":"2024-01-25","description":"Step-by-step guide to constructing an efficient solar water heater for your home, reducing energy costs.","id":"10","materials":["Copper Pipes","Glass Panel","Insulation","Storage Tank","Pump","Thermostatic Valve"],"rating":4.7,"steps":["Build the collector box","Install the copper pipe grid","Add insulation and the glass panel","Set up the storage tank and pump","Connect the system to your home's water supply","Test and optimize the system"],"tags":["solar","water heater","energy efficiency","DIY"],"title":"Build a Solar Water Heater","youtubeId":"l0qkcViT4is"},{"categories":["Drinking Water","Waste Management"],"date":"2023-12-05","description":"Detailed tutorial on building a natural reed bed system for greywater treatment and recycling.","id":"11","materials":["Pond Liner","Gravel","Sand","Reed Plants","Pipes","Distribution System"],"rating":4.5,"steps":["Excavate the reed bed area","Install the pond liner","Layer gravel and sand","Plant the reeds","Set up the water distribution system","Connect to your greywater source"],"tags":["reed bed","water treatment","greywater","natural filtration"],"title":"Constructing a Reed Bed Water Treatment System","youtubeId":"kUJr9NQY1Pk"}]};
+
+    
+    populateVideosTable(videos); 
+  }
+
+
+  
+  function fetchVideos() {
+    const videos = {"videos":[{"categories":["Energy Systems"],"date":"2024-02-10","description":"Learn how to repurpose a car alternator to create a robust windmill for generating off-grid electricity.","id":"9","materials":["Car Alternator","PVC Pipes","Wooden Blades","Tail Vane","Charge Controller","Deep Cycle Battery"],"rating":4.6,"steps":["Modify the alternator for low RPM operation","Construct the windmill frame using PVC pipes","Create and attach wooden blades","Install the tail vane for directional control","Set up the electrical system with charge controller and battery","Mount and test the windmill"],"tags":["windmill","alternator","off-grid","DIY power"],"title":"Car Alternator Windmill for Off-Grid Power","youtubeId":"X8hE8XYOQN4"},{"categories":["Energy Systems","Drinking Water"],"date":"2024-01-25","description":"Step-by-step guide to constructing an efficient solar water heater for your home, reducing energy costs.","id":"10","materials":["Copper Pipes","Glass Panel","Insulation","Storage Tank","Pump","Thermostatic Valve"],"rating":4.7,"steps":["Build the collector box","Install the copper pipe grid","Add insulation and the glass panel","Set up the storage tank and pump","Connect the system to your home's water supply","Test and optimize the system"],"tags":["solar","water heater","energy efficiency","DIY"],"title":"Build a Solar Water Heater","youtubeId":"l0qkcViT4is"},{"categories":["Drinking Water","Waste Management"],"date":"2023-12-05","description":"Detailed tutorial on building a natural reed bed system for greywater treatment and recycling.","id":"11","materials":["Pond Liner","Gravel","Sand","Reed Plants","Pipes","Distribution System"],"rating":4.5,"steps":["Excavate the reed bed area","Install the pond liner","Layer gravel and sand","Plant the reeds","Set up the water distribution system","Connect to your greywater source"],"tags":["reed bed","water treatment","greywater","natural filtration"],"title":"Constructing a Reed Bed Water Treatment System","youtubeId":"kUJr9NQY1Pk"}]};
+    populateVideosTable(videos); 
+  }
+
+  
+  function populateVideosTable(videos) {
+    const videosTableBody = document.getElementById('videos-table-body');
+    videosTableBody.innerHTML = ''; 
+
+    videos.forEach(video => {
+      const videoRow = `
+        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+          <td class="w-4 p-4">
+            <div class="flex items-center">
+              <input id="checkbox-${video.id}" aria-describedby="checkbox-1" type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+              <label for="checkbox-${video.id}" class="sr-only">checkbox</label>
+            </div>
+          </td>
+          <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+            <div class="text-base font-semibold text-gray-900 dark:text-white">${video.title}</div>
+          </td>
+          <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">${video.categories.join(', ')}</td>
+          <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">${video.description}</td>
+          <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#${video.id}</td>
+          <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <a href="https://www.youtube.com/watch?v=${video.youtubeId}" target="_blank">${video.youtubeId}</a>
+          </td>
+          <td class="p-4 space-x-2 whitespace-nowrap">
+            <button type="button" data-drawer-target="drawer-update-video-default" data-drawer-show="drawer-update-video-default" aria-controls="drawer-update-video-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onclick="openUpdateVideoDrawer('${video.id}')">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
+              Update
+            </button>
+            <button type="button" data-drawer-target="drawer-delete-video-default" data-drawer-show="drawer-delete-video-default" aria-controls="drawer-delete-video-default" data-drawer-placement="right" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900" onclick="openDeleteVideoDrawer('${video.id}')">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+              Delete
+            </button>
+          </td>
+        </tr>
+      `;
+      videosTableBody.innerHTML += videoRow;
+    });
+  
+
+  // Function to open the "Update Video" drawer and pre-fill the form
+  function openUpdateVideoDrawer(videoId) {
+    
+    const videoToUpdate = videos.find(video => video.id === videoId);
+
+    
+    const updateForm = document.getElementById('updateVideoForm');
+    updateForm.querySelector('[name="title"]').value = videoToUpdate.title;
+    
+  }
+
+
+
+function openDeleteVideoDrawer(videoId) {
+  
+  const videoToDelete = videos.find(video => video.id === videoId);
+  const deleteConfirmationMessage = document.querySelector('#deleteVideoForm h3');
+  if (deleteConfirmationMessage) {
+    deleteConfirmationMessage.textContent = `Are you sure you want to delete "${videoToDelete.title}"?`;
+  }
+
+  
+  const deleteVideoForm = document.getElementById('deleteVideoForm');
+  deleteVideoForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    
+    const videoIndex = videos.findIndex(video => video.id === videoId);
+
+    if (videoIndex > -1) {
+      
+      videos.splice(videoIndex, 1);
+
+      
+      populateVideosTable(videos); 
+
+      
+      
+    }
+
+    
+    const drawer = deleteVideoForm.closest('[id^="drawer-"]');
+    if (drawer && window[drawer.id]) {
+      window[drawer.id].hide();
+    }
+  });
+}
+
+
+
+
+function handleCreateVideoFormSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+
+  
+  const title = formData.get('title');
+  const category = formData.get('category');
+  const url = formData.get('url'); 
+  const description = formData.get('description');
+
+  
+  const newVideo = {
+    id: generateNewVideoId(), 
+    title: title,
+    categories: [category], 
+    youtubeId: url, 
+    description: description
+    
+  };
+
+  
+  videos.push(newVideo);
+
+  
+  populateVideosTable(videos);
+
+
+  
+
+  
+  fetchVideos(); 
+
+  form.reset();
+  const drawer = form.closest('[id^="drawer-"]');
+  if (drawer && window[drawer.id]) {
+    window[drawer.id].hide();
+  }
+
+
+</script>
+
+  </body>
+</html>
