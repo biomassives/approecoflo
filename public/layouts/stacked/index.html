@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
 <meta name="author" content="SCD Hub">
-<meta name="generator" content="Hugo 0.68.3">
+<meta name="generator" content="Approvideo 0.68.3">
 
 <title>Tailwind CSS Dashboard Stacked Layout - Flowbite</title>
 
-<link rel="canonical" href="https://approecoflo.vercel.app/layouts/stacked/">
+<link rel="canonical" href="https://approecofloi.netlify.app/layouts/stacked/">
 
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://approecoflo.vercel.app//app.css">
-<link rel="apple-touch-icon" sizes="180x180" href="https://approecoflo.vercel.app/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://approecoflo.vercel.app/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://approecoflo.vercel.app/favicon-16x16.png">
-<link rel="icon" type="image/png" href="https://approecoflo.vercel.app/favicon.ico">
-<link rel="manifest" href="https://approecoflo.vercel.app/site.webmanifest">
-<link rel="mask-icon" href="https://approecoflo.vercel.app/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" href="https://approecofloi.netlify.app//app.css">
+<link rel="apple-touch-icon" sizes="180x180" href="https://approecofloi.netlify.app/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://approecofloi.netlify.app/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://approecofloi.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" href="https://approecofloi.netlify.app/favicon.ico">
+<link rel="manifest" href="https://approecofloi.netlify.app/site.webmanifest">
+<link rel="mask-icon" href="https://approecofloi.netlify.app/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
 <!-- Twitter -->
@@ -31,14 +31,14 @@
 <meta name="twitter:creator" content="@">
 <meta name="twitter:title" content="Tailwind CSS Dashboard Stacked Layout - Flowbite">
 <meta name="twitter:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
-<meta name="twitter:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta name="twitter:image" content="https://approecofloi.netlify.app/images/og-image.png">
 
 <!-- Facebook -->
-<meta property="og:url" content="https://approecoflo.vercel.app/layouts/stacked/">
+<meta property="og:url" content="https://approecofloi.netlify.app/layouts/stacked/">
 <meta property="og:title" content="Tailwind CSS Dashboard Stacked Layout - Flowbite">
 <meta property="og:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta property="og:image" content="https://approecofloi.netlify.app/images/og-image.png">
 <meta property="og:image:type" content="image/png">
 
 
@@ -53,6 +53,15 @@
     } else {
         document.documentElement.classList.remove('dark')
     }
+
+
+    require('dotenv').config();
+    import { createClient } from '@supabase/supabase-js';
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+     const supabase = createClient(supabaseUrl, supabaseKey);
+
+
 </script>
 
   </head>
@@ -62,8 +71,8 @@
     <nav class="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-3 px-4">
         <div class="flex justify-between items-center max-w-screen-2xl mx-auto">
             <div class="flex justify-start items-center">
-                <a href="https://approecoflo.vercel.app/" class="flex mr-14">
-                    <img src="https://approecoflo.vercel.app/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" />
+                <a href="https://approecofloi.netlify.app/" class="flex mr-14">
+                    <img src="https://approecofloi.netlify.app/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" />
                     <span class="self-center hidden sm:flex text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                 </a>
                 
@@ -415,7 +424,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/iphone.png" alt="imac image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/iphone.png" alt="imac image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           iPhone 14 Pro 
@@ -437,7 +446,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/imac.png" alt="imac image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/imac.png" alt="imac image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple iMac 27"
@@ -459,7 +468,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/watch.png" alt="watch image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/watch.png" alt="watch image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple Watch SE
@@ -481,7 +490,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/ipad.png" alt="ipad image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/ipad.png" alt="ipad image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple iPad Air
@@ -503,7 +512,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/imac.png" alt="imac image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/imac.png" alt="imac image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple iMac 24"
@@ -529,7 +538,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/neil-sims.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/neil-sims.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -547,7 +556,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/bonnie-green.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/bonnie-green.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -565,7 +574,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/michael-gough.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/michael-gough.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -583,7 +592,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/thomas-lean.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/thomas-lean.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -601,7 +610,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/lana-byrd.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/lana-byrd.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -1778,12 +1787,12 @@
 
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="https://approecoflo.vercel.app//app.bundle.js"></script>
+<script src="https://approecofloi.netlify.app//app.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
-<script src="https://approecoflo.vercel.app/js/services/storage.js"></script>
-<script src="https://approecoflo.vercel.app/js/videos.js"></script>
+<script src="https://approecofloi.netlify.app/js/services/storage.js"></script>
+<script src="https://approecofloi.netlify.app/js/videos.js"></script>
 
 <script>
   

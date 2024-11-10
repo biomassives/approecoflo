@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
 <meta name="author" content="SCD Hub">
-<meta name="generator" content="Hugo 0.68.3">
+<meta name="generator" content="Approvideo 0.68.3">
 
 <title>Tailwind CSS Dashboard Stacked Layout - Flowbite</title>
 
-<link rel="canonical" href="https://approecoflo.vercel.app/layouts/sidebar/">
+<link rel="canonical" href="https://approecofloi.netlify.app/layouts/sidebar/">
 
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://approecoflo.vercel.app//app.css">
-<link rel="apple-touch-icon" sizes="180x180" href="https://approecoflo.vercel.app/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://approecoflo.vercel.app/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://approecoflo.vercel.app/favicon-16x16.png">
-<link rel="icon" type="image/png" href="https://approecoflo.vercel.app/favicon.ico">
-<link rel="manifest" href="https://approecoflo.vercel.app/site.webmanifest">
-<link rel="mask-icon" href="https://approecoflo.vercel.app/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" href="https://approecofloi.netlify.app//app.css">
+<link rel="apple-touch-icon" sizes="180x180" href="https://approecofloi.netlify.app/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://approecofloi.netlify.app/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://approecofloi.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" href="https://approecofloi.netlify.app/favicon.ico">
+<link rel="manifest" href="https://approecofloi.netlify.app/site.webmanifest">
+<link rel="mask-icon" href="https://approecofloi.netlify.app/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
 <!-- Twitter -->
@@ -31,14 +31,14 @@
 <meta name="twitter:creator" content="@">
 <meta name="twitter:title" content="Tailwind CSS Dashboard Stacked Layout - Flowbite">
 <meta name="twitter:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
-<meta name="twitter:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta name="twitter:image" content="https://approecofloi.netlify.app/images/og-image.png">
 
 <!-- Facebook -->
-<meta property="og:url" content="https://approecoflo.vercel.app/layouts/sidebar/">
+<meta property="og:url" content="https://approecofloi.netlify.app/layouts/sidebar/">
 <meta property="og:title" content="Tailwind CSS Dashboard Stacked Layout - Flowbite">
 <meta property="og:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta property="og:image" content="https://approecofloi.netlify.app/images/og-image.png">
 <meta property="og:image:type" content="image/png">
 
 
@@ -53,6 +53,15 @@
     } else {
         document.documentElement.classList.remove('dark')
     }
+
+
+    require('dotenv').config();
+    import { createClient } from '@supabase/supabase-js';
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+     const supabase = createClient(supabaseUrl, supabaseKey);
+
+
 </script>
 
   </head>
@@ -66,8 +75,8 @@
           <svg id="toggleSidebarMobileHamburger" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
           <svg id="toggleSidebarMobileClose" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
-        <a href="https://approecoflo.vercel.app/" class="flex ml-2 md:mr-24">
-          <img src="https://approecoflo.vercel.app/images/logo.svg" class="h-8 mr-3" alt="FlowBite Logo" />
+        <a href="https://approecofloi.netlify.app/" class="flex ml-2 md:mr-24">
+          <img src="https://approecofloi.netlify.app/images/logo.svg" class="h-8 mr-3" alt="FlowBite Logo" />
           <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">ApproVideo</span>
         </a>
         <form action="#" method="GET" class="hidden lg:block lg:pl-3.5">
@@ -104,7 +113,7 @@
             <div>
               <a href="#" class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                 <div class="flex-shrink-0">
-                  <img class="rounded-full w-11 h-11" src="https://approecoflo.vercel.app/images/users/bonnie-green.png" alt="Jese image">
+                  <img class="rounded-full w-11 h-11" src="https://approecofloi.netlify.app/images/users/bonnie-green.png" alt="Jese image">
                   <div class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 border border-white rounded-full bg-primary-700 dark:border-gray-700">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
                   </div>
@@ -116,7 +125,7 @@
               </a>
               <a href="#" class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                 <div class="flex-shrink-0">
-                  <img class="rounded-full w-11 h-11" src="https://approecoflo.vercel.app/images/users/jese-leos.png" alt="Jese image">
+                  <img class="rounded-full w-11 h-11" src="https://approecofloi.netlify.app/images/users/jese-leos.png" alt="Jese image">
                   <div class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-700">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path></svg>
                   </div>
@@ -128,7 +137,7 @@
               </a>
               <a href="#" class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                 <div class="flex-shrink-0">
-                  <img class="rounded-full w-11 h-11" src="https://approecoflo.vercel.app/images/users/joseph-mcfall.png" alt="Joseph image">
+                  <img class="rounded-full w-11 h-11" src="https://approecofloi.netlify.app/images/users/joseph-mcfall.png" alt="Joseph image">
                   <div class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-700">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
                   </div>
@@ -140,7 +149,7 @@
               </a>
               <a href="#" class="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                 <div class="flex-shrink-0">
-                  <img class="rounded-full w-11 h-11" src="https://approecoflo.vercel.app/images/users/leslie-livingston.png" alt="Leslie image">
+                  <img class="rounded-full w-11 h-11" src="https://approecofloi.netlify.app/images/users/leslie-livingston.png" alt="Leslie image">
                   <div class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-700">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                   </div>
@@ -152,7 +161,7 @@
               </a>
               <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
                 <div class="flex-shrink-0">
-                  <img class="rounded-full w-11 h-11" src="https://approecoflo.vercel.app/images/users/robert-brown.png" alt="Robert image">
+                  <img class="rounded-full w-11 h-11" src="https://approecofloi.netlify.app/images/users/robert-brown.png" alt="Robert image">
                   <div class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-700">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
                   </div>
@@ -265,7 +274,7 @@
             </form>
           </li>
           <li>
-            <a href="https://approecoflo.vercel.app/" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+            <a href="https://approecofloi.netlify.app/" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                 <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                 <span class="ml-3" sidebar-toggle-item>Dashboard</span>
             </a>
@@ -280,10 +289,10 @@
             </button>
             <ul id="dropdown-layouts" class="hidden py-2 space-y-2">
               <li>
-                <a href="https://approecoflo.vercel.app/layouts/stacked/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Stacked</a>
+                <a href="https://approecofloi.netlify.app/layouts/stacked/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Stacked</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/layouts/sidebar/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sidebar</a>
+                <a href="https://approecofloi.netlify.app/layouts/sidebar/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sidebar</a>
               </li>
             </ul>
           </li>
@@ -297,19 +306,19 @@
             </button>
             <ul id="dropdown-crud" class="space-y-2 py-2 hidden ">
               <li>
-                <a href="https://approecoflo.vercel.app/crud/products/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Products</a>
+                <a href="https://approecofloi.netlify.app/crud/products/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Products</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/crud/users/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Users</a>
+                <a href="https://approecofloi.netlify.app/crud/users/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Users</a>
               </li>
 
               <li>
-                <a href="https://approecoflo.vercel.app/crud/videos/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Videos</a>
+                <a href="https://approecofloi.netlify.app/crud/videos/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Videos</a>
               </li>
             </ul>
           </li>
           <li>
-            <a href="https://approecoflo.vercel.app/settings/" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
+            <a href="https://approecofloi.netlify.app/settings/" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
                 <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path clip-rule="evenodd" fill-rule="evenodd" d="M8.34 1.804A1 1 0 019.32 1h1.36a1 1 0 01.98.804l.295 1.473c.497.144.971.342 1.416.587l1.25-.834a1 1 0 011.262.125l.962.962a1 1 0 01.125 1.262l-.834 1.25c.245.445.443.919.587 1.416l1.473.294a1 1 0 01.804.98v1.361a1 1 0 01-.804.98l-1.473.295a6.95 6.95 0 01-.587 1.416l.834 1.25a1 1 0 01-.125 1.262l-.962.962a1 1 0 01-1.262.125l-1.25-.834a6.953 6.953 0 01-1.416.587l-.294 1.473a1 1 0 01-.98.804H9.32a1 1 0 01-.98-.804l-.295-1.473a6.957 6.957 0 01-1.416-.587l-1.25.834a1 1 0 01-1.262-.125l-.962-.962a1 1 0 01-.125-1.262l.834-1.25a6.957 6.957 0 01-.587-1.416l-1.473-.294A1 1 0 011 10.68V9.32a1 1 0 01.804-.98l1.473-.295c.144-.497.342-.971.587-1.416l-.834-1.25a1 1 0 01.125-1.262l.962-.962A1 1 0 015.38 3.03l1.25.834a6.957 6.957 0 011.416-.587l.294-1.473zM13 10a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
@@ -324,16 +333,16 @@
             </button>
             <ul id="dropdown-pages" class="hidden py-2 space-y-2">
               <li>
-                <a href="https://approecoflo.vercel.app/pages/pricing/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Pricing</a>
+                <a href="https://approecofloi.netlify.app/pages/pricing/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Pricing</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/pages/maintenance/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Maintenance</a>
+                <a href="https://approecofloi.netlify.app/pages/maintenance/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Maintenance</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/pages/404/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">404 not found</a>
+                <a href="https://approecofloi.netlify.app/pages/404/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">404 not found</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/pages/500/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">500 server error</a>
+                <a href="https://approecofloi.netlify.app/pages/500/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">500 server error</a>
               </li>
             </ul>
           </li>
@@ -345,19 +354,19 @@
             </button>
             <ul id="dropdown-auth" class="hidden py-2 space-y-2">
               <li>
-                <a href="https://approecoflo.vercel.app/authentication/sign-in/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign in</a>
+                <a href="https://approecofloi.netlify.app/authentication/sign-in/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign in</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/authentication/sign-up/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign up</a>
+                <a href="https://approecofloi.netlify.app/authentication/sign-up/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign up</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/authentication/forgot-password/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Forgot password</a>
+                <a href="https://approecofloi.netlify.app/authentication/forgot-password/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Forgot password</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/authentication/reset-password/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Reset password</a>
+                <a href="https://approecofloi.netlify.app/authentication/reset-password/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Reset password</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/authentication/profile-lock/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Profile lock</a>
+                <a href="https://approecofloi.netlify.app/authentication/profile-lock/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Profile lock</a>
               </li>
             </ul>
           </li>
@@ -371,10 +380,10 @@
             </button>
             <ul id="dropdown-playground" class="space-y-2 py-2 hidden ">
               <li>
-                <a href="https://approecoflo.vercel.app/playground/stacked/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Stacked</a>
+                <a href="https://approecofloi.netlify.app/playground/stacked/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Stacked</a>
               </li>
               <li>
-                <a href="https://approecoflo.vercel.app/playground/sidebar/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Sidebar</a>
+                <a href="https://approecofloi.netlify.app/playground/sidebar/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Sidebar</a>
               </li>
             </ul>
           </li>
@@ -403,7 +412,7 @@
       <a href="#" class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
       </a>
-      <a href="https://approecoflo.vercel.app/settings/" data-tooltip-target="tooltip-settings" class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+      <a href="https://approecofloi.netlify.app/settings/" data-tooltip-target="tooltip-settings" class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
       </a>
       <div id="tooltip-settings" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
@@ -583,7 +592,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/iphone.png" alt="imac image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/iphone.png" alt="imac image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           iPhone 14 Pro 
@@ -605,7 +614,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/imac.png" alt="imac image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/imac.png" alt="imac image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple iMac 27"
@@ -627,7 +636,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/watch.png" alt="watch image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/watch.png" alt="watch image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple Watch SE
@@ -649,7 +658,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/ipad.png" alt="ipad image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/ipad.png" alt="ipad image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple iPad Air
@@ -671,7 +680,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center min-w-0">
-                      <img class="flex-shrink-0 w-10 h-10" src="https://approecoflo.vercel.app/images/products/imac.png" alt="imac image">
+                      <img class="flex-shrink-0 w-10 h-10" src="https://approecofloi.netlify.app/images/products/imac.png" alt="imac image">
                       <div class="ml-3">
                         <p class="font-medium text-gray-900 truncate dark:text-white">
                           Apple iMac 24"
@@ -697,7 +706,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/neil-sims.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/neil-sims.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -715,7 +724,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/bonnie-green.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/bonnie-green.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -733,7 +742,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/michael-gough.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/michael-gough.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -751,7 +760,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/thomas-lean.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/thomas-lean.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -769,7 +778,7 @@
                 <li class="py-3 sm:py-4">
                   <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                      <img class="w-8 h-8 rounded-full" src="https://approecoflo.vercel.app/images/users/lana-byrd.png" alt="Neil image">
+                      <img class="w-8 h-8 rounded-full" src="https://approecofloi.netlify.app/images/users/lana-byrd.png" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                       <p class="font-medium text-gray-900 truncate dark:text-white">
@@ -1964,14 +1973,8 @@
     </div>
 </footer>
 <p class="my-10 text-sm text-center text-gray-500">
-    &copy; 2024-90954 <a href="https://approvideo.org/" class="hover:underline" target="_blank">Flowbite.com</a>. All rights reserved.
+    &copy; 2024-90948 <a href="https://approvideo.org/" class="hover:underline" target="_blank">Flowbite.com</a>. All rights reserved.
 </p>
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-
-// what is clipboard.js? - cut and paste simplfier ui system
-// clipboard docs Page  --  https://clipboardjs.com
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>  
  
   </div>
 
@@ -1979,12 +1982,12 @@
 
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="https://approecoflo.vercel.app//app.bundle.js"></script>
+<script src="https://approecofloi.netlify.app//app.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
-<script src="https://approecoflo.vercel.app/js/services/storage.js"></script>
-<script src="https://approecoflo.vercel.app/js/videos.js"></script>
+<script src="https://approecofloi.netlify.app/js/services/storage.js"></script>
+<script src="https://approecofloi.netlify.app/js/videos.js"></script>
 
 <script>
   

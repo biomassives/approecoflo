@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
 <meta name="author" content="SCD Hub">
-<meta name="generator" content="Hugo 0.68.3">
+<meta name="generator" content="Approvideo 0.68.3">
 
 <title>Tailwind CSS 404 Not Found Page - Flowbite</title>
 
-<link rel="canonical" href="https://approecoflo.vercel.app/pages/404/">
+<link rel="canonical" href="https://approecofloi.netlify.app/pages/404/">
 
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://approecoflo.vercel.app//app.css">
-<link rel="apple-touch-icon" sizes="180x180" href="https://approecoflo.vercel.app/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://approecoflo.vercel.app/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://approecoflo.vercel.app/favicon-16x16.png">
-<link rel="icon" type="image/png" href="https://approecoflo.vercel.app/favicon.ico">
-<link rel="manifest" href="https://approecoflo.vercel.app/site.webmanifest">
-<link rel="mask-icon" href="https://approecoflo.vercel.app/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" href="https://approecofloi.netlify.app//app.css">
+<link rel="apple-touch-icon" sizes="180x180" href="https://approecofloi.netlify.app/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://approecofloi.netlify.app/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://approecofloi.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" href="https://approecofloi.netlify.app/favicon.ico">
+<link rel="manifest" href="https://approecofloi.netlify.app/site.webmanifest">
+<link rel="mask-icon" href="https://approecofloi.netlify.app/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
 <!-- Twitter -->
@@ -31,14 +31,14 @@
 <meta name="twitter:creator" content="@">
 <meta name="twitter:title" content="Tailwind CSS 404 Not Found Page - Flowbite">
 <meta name="twitter:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
-<meta name="twitter:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta name="twitter:image" content="https://approecofloi.netlify.app/images/og-image.png">
 
 <!-- Facebook -->
-<meta property="og:url" content="https://approecoflo.vercel.app/pages/404/">
+<meta property="og:url" content="https://approecofloi.netlify.app/pages/404/">
 <meta property="og:title" content="Tailwind CSS 404 Not Found Page - Flowbite">
 <meta property="og:description" content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://approecoflo.vercel.app/images/og-image.png">
+<meta property="og:image" content="https://approecofloi.netlify.app/images/og-image.png">
 <meta property="og:image:type" content="image/png">
 
 
@@ -53,6 +53,15 @@
     } else {
         document.documentElement.classList.remove('dark')
     }
+
+
+    require('dotenv').config();
+    import { createClient } from '@supabase/supabase-js';
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+     const supabase = createClient(supabaseUrl, supabaseKey);
+
+
 </script>
 
   </head>
@@ -65,12 +74,12 @@
   
 <div class="flex flex-col justify-center items-center px-6 mx-auto h-screen xl:px-0 dark:bg-gray-900">
     <div class="block md:max-w-lg">
-        <img src="https://approecoflo.vercel.app/images/illustrations/404.svg" alt="astronaut image">
+        <img src="https://approecofloi.netlify.app/images/illustrations/404.svg" alt="astronaut image">
     </div>
     <div class="text-center xl:max-w-4xl">
         <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">Page not found</h1>
         <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.</p>
-        <a href="https://approecoflo.vercel.app/" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+        <a href="https://approecofloi.netlify.app/" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
             <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             Go back home
         </a>
@@ -83,12 +92,12 @@
 
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="https://approecoflo.vercel.app//app.bundle.js"></script>
+<script src="https://approecofloi.netlify.app//app.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
-<script src="https://approecoflo.vercel.app/js/services/storage.js"></script>
-<script src="https://approecoflo.vercel.app/js/videos.js"></script>
+<script src="https://approecofloi.netlify.app/js/services/storage.js"></script>
+<script src="https://approecofloi.netlify.app/js/videos.js"></script>
 
 <script>
   
