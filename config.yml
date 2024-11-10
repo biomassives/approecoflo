@@ -1,5 +1,5 @@
 languageCode:           "en"
-title:                  "Approvideo Dashboard"
+title:                  "Appro Eco Flow"
 # baseURL:                "http://localhost:1313"
 baseURL:                "https://approecoflo.vercel.app/"
 enableInlineShortcodes: true
