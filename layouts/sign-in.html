@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+
+<body>
+  <main class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
+      <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Sign In</h2>
+        <form class="mt-8 space-y-6" action="#" id="signin-form">
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+              email</label>
+            <input type="email" name="email" id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="name@company.com" required>
+            <span id="email-error" class="error-message"></span>
+          </div>
+          <div>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+              password</label>
+            <input type="password" name="password" id="password" placeholder="••••••••"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              required>
+            <span id="password-error" class="error-message"></span>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="remember-me"
+              class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+            <label for="remember-me" class="ml-2 text-sm font-medium text-gray-900 dark:text-white">Remember
+              me</label>
+          </div>
+          <button type="submit"
+            class="w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { signIn } from '/js/auth.js';
+
+    const form = document.getElementById('signin-form');
+    const emailError = document.getElementById('email-error'); // Get email error span
+    const passwordError = document.getElementById('password-error'); // Get password error span
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      emailError.textContent = ''; // Clear previous error messages
+      passwordError.textContent = '';
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const rememberMe = document.getElementById('remember-me').checked;
+
+      try {
+        const { error } = await signIn(email, password, rememberMe);
+
+        if (error) {
+          if (error.status === 400) {
+            // Invalid email or password
+            if (error.message.includes('email')) {
+              emailError.textContent = 'Invalid email address.'; // Set email error message
+            } else {
+              passwordError.textContent = 'Incorrect password.'; // Set password error message
+            }
+          } else {
+            console.error('Sign-in error:', error);
+            alert('Sign-in failed. Please try again later.');
+          }
+        } else {
+          window.location.href = '/dashboard/';
+        }
+
+      } catch (error) {
+        console.error('Unexpected error during sign-in:', error);
+        alert('An unexpected error occurred. Please try again later.');
+      }
+
+    });
+  </script>
+  <script src="/app.bundle.js"></script>
+</body>
+
+</html>

@@ -121,8 +121,7 @@
    = document.getElementById('email').value;
       const password = document.getElementById('password').value;
   
-      // Use  
-   Supabase client library to sign up the user
+      // Use   Supabase client library to sign up the user
       const { user, error } = await supabase.auth.signUp({
         email: email,
         password: password,
