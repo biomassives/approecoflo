@@ -1,4 +1,20 @@
-import { videoStorage } from './services/storage.js';
+;
+import { createClient } from '@supabase/supabase-js';
+import { supabase } from './auth';
+
+
+const videoContainer = document.getElementById('video-container');
+const pageSize = 12; 
+let currentPage = 1;
+
+
+
+
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', async function() {
     await initializeVideos();
@@ -35,17 +51,21 @@ function renderVideos(videos) {
 
 
 
-async function fetchVideosFromSupabase() {
-    const { data, error } = await supabase
-      .from('videos')
-      .select('*');
-  
-    if (error) {
-      console.error('Error fetching videos:', error);
-    } else {
-      populateVideosTable(data);
-    }
+
+
+async function fetchVideos() {
+  const { data, error, count } = await supabase
+    .from('videos')
+    .select('*', { count: 'exact' })
+    .range((currentPage - 1) * pageSize, currentPage * pageSize - 1);
+
+  if (error) {
+    console.error('Error fetching videos:', error);
+  } else {
+    displayVideos(data, count);
   }
+}
+
 
 function initializeNetworkStatus() {
     const updateNetworkStatus = () => {
@@ -80,33 +100,51 @@ async function handleFormSubmit(e) {
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    
+    const drawer = form.closest('[id^="drawer-"]');
+    const isCreate = drawer.id.includes('create');
+  
     try {
-        const drawer = form.closest('[id^="drawer-"]');
-        const isCreate = drawer.id.includes('create');
-        
-        if (isCreate) {
-            await videoStorage.saveVideo(data);
-            showSuccess('Video saved locally');
+      if (isCreate) {
+        // Save new video to Supabase
+        const { error } = await supabase
+          .from('videos')
+          .insert([data]); 
+  
+        if (error) {
+          console.error('Error creating video:', error);
+          showError('Failed to create video');
         } else {
-            const videoId = form.dataset.videoId;
-            await videoStorage.updateVideo(videoId, data);
-            showSuccess('Video updated locally');
+          showSuccess('Video created successfully!');
         }
-        
-        if (drawer && window[drawer.id]) {
-            window[drawer.id].hide();
+  
+      } else {
+        // Update existing video in Supabase
+        const videoId = form.dataset.videoId; 
+        const { error } = await supabase
+          .from('videos')
+          .update(data)
+          .eq('id', videoId); 
+  
+        if (error) {
+          console.error('Error updating video:', error);
+          showError('Failed to update video');
+        } else {
+          showSuccess('Video updated successfully!');
         }
-        
-        // Refresh the video list
-        const videos = await videoStorage.getAllVideos();
-        renderVideos(videos);
+      }
+  
+      if (drawer && window[drawer.id]) {
+        window[drawer.id].hide();
+      }
+  
+      // Refresh the video list from Supabase
+      fetchVideos(); 
+  
     } catch (error) {
-        console.error('Form submission error:', error);
-        showError('Failed to save video');
+      console.error('Form submission error:', error);
+      showError('Failed to save video data'); 
     }
-}
-
+  }
 // Notification helpers
 function showSuccess(message) {
     // Implement notification system
