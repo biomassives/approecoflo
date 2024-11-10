@@ -1,1 +1,3 @@
-"build": "hugo build"
+[build]
+  command = "hugo"  # Or "hugo --gc --minify" for garbage collection and minification
+  publish = "public" # Or the directory where Hugo outputs your built site
